@@ -5,6 +5,7 @@
       <change afterPath="$PROJECT_DIR$/src/pages/Cart/MiniGood.module.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/DeliveryApp.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/DeliveryApp.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/CartGood/MiniGood.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MiniGood/MiniGood.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/CartGood/MiniGood.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MiniGood/MiniGood.module.scss" afterDir="false" />
@@ -51,7 +52,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1657635169831</updated>
-      <workItem from="1657635176120" duration="10958000" />
+      <workItem from="1657635176120" duration="11190000" />
     </task>
     <servers />
   </component>
