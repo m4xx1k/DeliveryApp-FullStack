@@ -22,7 +22,7 @@ export const deliveryApi = createApi({
             query:(id)=>`ordersById/?id=${id}`
         }),
         getOrdersByContacts: build.query({
-            query: (text) => `ordersByPhone/?phone=${text}`
+            query: (phone, email) => `ordersByPhone/?phone=${phone}&email=${email}`
         })
     })
 

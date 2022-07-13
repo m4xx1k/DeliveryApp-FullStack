@@ -11,16 +11,19 @@ const History = () => {
     const [phone, setPhone] = useState('')
     const [phoneError, setPhoneError]= useState("")
 
+    const [email, setEmail] = useState("")
+    const [emailError, setEmailError] = useState("")
+
     const [orderId, setOrderId] = useState('')
     const [orderIdError, setOrderIdError] = useState("")
 
     const [searchBy, setSearchBy] = useState('phone')
 
     const {
-        data: ordersByPhone,
+        data: ordersByContacts,
         isLoading: isLoadingOrdersByPhone,
         isSuccess: isSuccessOrdersByPhone
-        } = useGetOrdersByContactsQuery(Number(phone))
+        } = useGetOrdersByContactsQuery(Number(phone), email)
 
     const {
         data: orderById,
@@ -28,22 +31,27 @@ const History = () => {
         isSuccess: isSuccessOrdersById
         } = useGetOrderByIdQuery(Number(orderId))
 
-    const findByPhone = async (e) => {
+    const findByContacts = async (e) => {
 
         e.preventDefault()
 
 
         const correctPhone = phone.split("").length === 12 && !isNaN(Number(phone))
+        const correctEmail = email.toLowerCase()
+            .match(
+                /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+            )
 
-        if (correctPhone){
-            await setOrders(ordersByPhone)
+        if (correctPhone && correctEmail){
+            await setOrders(ordersByContacts)
             setSearchBy("phone")
             setPhoneError("")
+            setEmailError("")
 
         }
         else
         {
-            setPhoneError("Invalid input")
+            correctPhone ? setEmailError("Invalid input") : setPhoneError("Invalid input")
             setOrders([])
         }
     }
@@ -75,8 +83,15 @@ const History = () => {
                        placeholder="380123456789"/>
                 {phoneError && <div>{phoneError}</div>}
 
+                <label htmlFor="email">Email</label>
+                <input type="email"
+                       name="email"
+                       onChange={(e) => setEmail(e.target.value)}
+                       placeholder="volnov@prankota.com"/>
+                {emailError && <div>{emailError}</div>}
 
-                <button onClick={(e) => findByPhone(e)} type="submit">Find</button>
+
+                <button onClick={(e) => findByContacts(e)} type="submit">Find</button>
 
                 <div className={styles.title}>Or</div>
 

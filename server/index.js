@@ -44,7 +44,8 @@ app.get("/ordersById", async (req, res) => {
 app.get("/ordersByPhone", async (req, res) => {
     try {
         const phone = req.query.phone
-        const order = await Order.find({phone: phone})
+        const email = req.query.email
+        const order = await Order.find({phone: phone,email: email})
         res.json(order)
     } catch (e) {
         console.log(e)
